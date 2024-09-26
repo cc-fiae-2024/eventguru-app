@@ -8,6 +8,7 @@ on:
 env:
   DB_CONNECTION: mysql
   DB_HOST: 127.0.0.1
+  # See https://github.com/cc-fiae-2024/cc-fiae-2024/settings/secrets/actions
   DB_USER: ${{ secrets.DB_USER }}
   DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
   DB_DATABASE: testing
@@ -16,6 +17,7 @@ jobs:
   laravel-tests:
     # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
     runs-on: ubuntu-24.04
+    environment: testing
 
     strategy:
       matrix:
