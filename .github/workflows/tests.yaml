@@ -41,11 +41,12 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: 20
+        cache: 'npm'
 
-    - name: Get Composer Cache Directory 2
+    - name: Get Composer Cache Directory
       id: composer-cache
       run: |
-        echo "::set-output name=dir::$(composer config cache-files-dir)"
+        echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
     - uses: actions/cache@v4.0.2
       id: actions-cache
@@ -62,19 +63,11 @@ jobs:
         path: vendor
         key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
 
-    - name: Cache Node dependencies
-      uses: actions/cache@v4.0.2
-      id: node-cache
-      with:
-        path: node_modules
-        key: ${{ runner.OS }}-build-${{ hashFiles('**/package-lock.json') }}
-
     - name: Install PHP Dependencies
       if: steps.vendor-cache.outputs.cache-hit != 'true'
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
     - name: Install Node Dependencies
-      if: steps.node-cache.outputs.cache-hit != 'true'
       run: npm install
 
     - name: Directory Permissions
