@@ -5,6 +5,12 @@ on:
       - main
       - develop
 
+env:
+  DB_CONNECTION: mysql
+  DB_HOST: 127.0.0.1
+  DB_USER: root
+  DB_PASSWORD: root
+
 jobs:
   laravel-tests:
     # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
@@ -74,10 +80,12 @@ jobs:
       run: chmod -R 777 storage bootstrap/cache
 
     - name: Prepare Laravel Application
-      run: php artisan key:generate --env=testing
+      run: |
+        php -r "file_exists('.env') || copy('.env.example', '.env');"
+        php artisan key:generate
 
     - name: Run Migrations
-      run: php artisan migrate --env=testing
+      run: php artisan migrate
 
     - name: Build Frontend Assets
       run: npm run build
