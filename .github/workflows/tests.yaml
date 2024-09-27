@@ -38,6 +38,11 @@ jobs:
     - name: Start MySQL service
       run: sudo systemctl start mysql.service
 
+    - name: Install PHP
+      uses: shivammathur/setup-php@2.31.1
+      with:
+        php-version: ${{ matrix.php-version }}
+
     - name: Download build artifact
       id: download-build-artifact
       uses: actions/download-artifact@v4.1.8
@@ -46,24 +51,12 @@ jobs:
         name: eventguru-build-${{ github.run_id }}
         path: public/build
 
-    - name: Cache PHP dependencies
+    - name: Restore vendor from Cache
       uses: actions/cache@v4.0.2
       id: vendor-cache
       with:
         path: vendor
         key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
-
-    #- name: Download vendor artifact
-    #  id: download-vendor-artifact
-    #  uses: actions/download-artifact@v4.1.8
-    #  with:
-    #    name: eventguru-vendor-${{ github.run_id }}
-    #    path: vendor
-
-    - name: Install PHP
-      uses: shivammathur/setup-php@2.31.1
-      with:
-        php-version: ${{ matrix.php-version }}
 
     - name: Prepare Laravel Application
       run: |
