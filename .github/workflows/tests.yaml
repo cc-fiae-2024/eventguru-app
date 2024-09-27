@@ -39,6 +39,7 @@ jobs:
       with:
         # Pick up the folder from build.yaml Upload (name must match)
         name: eventguru-build-${{ github.run_id }}
+        path: public/build
 
     - name: List artifact directories
       run: |
@@ -46,6 +47,12 @@ jobs:
         ls -R
 
     - uses: actions/checkout@v4.1.7
+
+    - name: List working directory
+      run: |
+        echo ${{ steps.download-artifact.outputs.download-path }}
+        echo ${{ github.workspace }}
+        ls -R
 
     - name: Start MySQL service
       run: sudo systemctl start mysql.service
