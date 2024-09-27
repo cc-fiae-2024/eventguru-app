@@ -37,13 +37,13 @@ jobs:
       uses: actions/download-artifact@v4.1.8
       with:
         # Pick up the folder from build.yaml Upload (name must match)
-        path: eventguru-build-P${{ matrix.php-version }}
+        path: eventguru-build-${{ github.run_id }}
         # See https://github.com/actions/download-artifact#download-artifacts-from-other-workflow-runs-or-repositories
     #    run-id: ${{ github.event.workflow_run.id }}
     #    github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: List artifact directories
-      run: ls -la vendor/ public/build
+      run: ls -la public/build
 
     - name: Start MySQL service
       run: sudo systemctl start mysql.service
