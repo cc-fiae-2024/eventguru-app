@@ -34,6 +34,9 @@ jobs:
       with:
         # Pick up the folder from build.yaml Upload (name must match)
         name: public-folder
+        # See https://github.com/actions/download-artifact#download-artifacts-from-other-workflow-runs-or-repositories
+        run-id: ${{ github.event.workflow_run.id }}
+        github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Execute tests (Unit and Feature tests) via PestPHP
       run: php artisan test
