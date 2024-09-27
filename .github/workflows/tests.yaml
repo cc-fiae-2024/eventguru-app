@@ -1,7 +1,8 @@
 name: Test Laravel Github action
 on:
   workflow_run:
-    workflows: [Build Laravel Github action]
+    workflows:
+      - "Build Laravel Github action"
     types:
       - completed
 
@@ -17,6 +18,7 @@ jobs:
   laravel-tests:
     # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
     runs-on: ubuntu-24.04
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment: testing
 
     strategy:
