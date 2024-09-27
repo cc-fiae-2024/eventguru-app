@@ -1,12 +1,9 @@
 name: Test Laravel Github action
 on:
-  workflow_call: # Allow to be triggered by another workflow
-  workflow_dispatch: # Allow for manual dispatch
-  workflow_run:
-    workflows:
-      - "Build Laravel Github action"
-    types:
-      - completed
+  pull_request:
+    branches:
+      - main
+      - develop
 
 env:
   DB_CONNECTION: mysql
@@ -17,10 +14,13 @@ env:
   DB_DATABASE: testing
 
 jobs:
-  laravel-tests:
+  build:
+    uses: './github/workflows/build.yaml'
+
+  tests:
+    needs: [build]
     # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
     runs-on: ubuntu-24.04
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment: testing
 
     strategy:
@@ -33,9 +33,6 @@ jobs:
     name: P${{ matrix.php-versions }} - L${{ matrix.laravel }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system}}
 
     steps:
-    - name: Debug
-      run: echo "Run-id ${{ github.event.workflow_run.id }} because ${{ github.event.workflow_run.conclusion }}"
-
     - name: Download build artifact
       uses: actions/download-artifact@v4.1.8
       with:
