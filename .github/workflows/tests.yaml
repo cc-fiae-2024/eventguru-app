@@ -45,7 +45,7 @@ jobs:
     #    github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: List artifact directories
-      run: ls -la . public/build
+      run: ls -la . public
 
     - name: Start MySQL service
       run: sudo systemctl start mysql.service
