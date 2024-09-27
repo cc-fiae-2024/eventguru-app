@@ -46,6 +46,9 @@ jobs:
         path: vendor
         key: ${{ runner.os }}-build-${{ hashFiles('**/composer.lock') }}
 
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
     - name: Install PHP Dependencies
       if: steps.vendor-cache.outputs.cache-hit != 'true'
       run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
