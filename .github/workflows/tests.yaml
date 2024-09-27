@@ -40,6 +40,7 @@ jobs:
       with:
         # Pick up the folder from build.yaml Upload (name must match)
         name: eventguru-build-${{ github.run_id }}
+        path: .
         # See https://github.com/actions/download-artifact#download-artifacts-from-other-workflow-runs-or-repositories
     #    run-id: ${{ github.event.workflow_run.id }}
     #    github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -54,6 +55,11 @@ jobs:
       uses: shivammathur/setup-php@2.31.1
       with:
         php-version: ${{ matrix.php-version }}
+
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: |
+        echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
     - uses: actions/cache@v4.0.2
       id: actions-cache
