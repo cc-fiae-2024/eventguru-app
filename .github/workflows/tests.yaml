@@ -35,8 +35,10 @@ jobs:
     steps:
     - uses: actions/checkout@v4.1.7
 
-    - name: Start MySQL service
-      run: sudo systemctl start mysql.service
+    - name: Start MySQL service & create testing database
+      run: |
+        sudo systemctl start mysql.service
+        mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u"$DB_USER" -p"$DB_PASSWORD"
 
     - name: Install PHP
       uses: shivammathur/setup-php@2.31.1
