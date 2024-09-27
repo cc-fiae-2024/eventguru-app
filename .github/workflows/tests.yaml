@@ -1,5 +1,7 @@
 name: Test Laravel Github action
 on:
+  workflow_call: # Allow to be triggered by another workflow
+  workflow_dispatch: # Allow for manual dispatch
   workflow_run:
     workflows:
       - "Build Laravel Github action"
