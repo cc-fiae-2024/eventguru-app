@@ -33,21 +33,19 @@ jobs:
     name: P${{ matrix.php-version }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system }}
 
     steps:
-    - uses: actions/checkout@v4.1.7
-
     - name: Download build artifact
       id: download-artifact
       uses: actions/download-artifact@v4.1.8
       with:
         # Pick up the folder from build.yaml Upload (name must match)
-        # Pick up the folder from build.yaml Upload (name must match)
         name: eventguru-build-${{ github.run_id }}
-        # See https://github.com/actions/download-artifact#download-artifacts-from-other-workflow-runs-or-repositories
-    #    run-id: ${{ github.event.workflow_run.id }}
-    #    github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: List artifact directories
-      run: echo ${{ steps.download-artifact.download-path }} && ls -R
+      run: |
+        echo ${{ steps.download-artifact.outputs.download-path }}
+        ls -R
+
+    - uses: actions/checkout@v4.1.7
 
     - name: Start MySQL service
       run: sudo systemctl start mysql.service
