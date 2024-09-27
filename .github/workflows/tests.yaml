@@ -33,20 +33,46 @@ jobs:
     name: P${{ matrix.php-version }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system }}
 
     steps:
+    - uses: actions/checkout@v4.1.7
+
     - name: Download build artifact
       uses: actions/download-artifact@v4.1.8
       with:
         # Pick up the folder from build.yaml Upload (name must match)
-        path: eventguru-build-${{ github.run_id }}
+        name: eventguru-build-${{ github.run_id }}
         # See https://github.com/actions/download-artifact#download-artifacts-from-other-workflow-runs-or-repositories
     #    run-id: ${{ github.event.workflow_run.id }}
     #    github-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: List artifact directories
-      run: ls -la . ${{ github.workspace }}
+      run: ls -la . public/build
 
     - name: Start MySQL service
       run: sudo systemctl start mysql.service
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@2.31.1
+      with:
+        php-version: ${{ matrix.php-version }}
+
+    - uses: actions/cache@v4.0.2
+      id: actions-cache
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+
+    - name: Cache PHP dependencies
+      uses: actions/cache@v4.0.2
+      id: vendor-cache
+      with:
+        path: vendor
+        key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+
+    - name: Install PHP Dependencies
+      if: steps.vendor-cache.outputs.cache-hit != 'true'
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
     - name: Prepare Laravel Application
       run: |
