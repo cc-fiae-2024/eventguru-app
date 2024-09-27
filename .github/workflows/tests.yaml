@@ -17,20 +17,20 @@ jobs:
   build:
     uses: './.github/workflows/build.yaml'
 
-  tests:
-    needs: [build]
+  php-tests:
+    needs: [ build ]
     # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
     runs-on: ubuntu-24.04
     environment: testing
 
     strategy:
       matrix:
-        operating-system: [ubuntu-24.04]
+        operating-system: [ ubuntu-24.04 ]
         # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
         php-version: [ '8.3' ]
         dependency-stability: [ prefer-stable ]
 
-    name: P${{ matrix.php-version }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system }}
+    name: php-tests - PHP ${{ matrix.php-version }} - ${{ matrix.operating-system }}
 
     steps:
     - uses: actions/checkout@v4.1.7

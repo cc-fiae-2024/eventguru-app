@@ -10,12 +10,12 @@ jobs:
 
     strategy:
       matrix:
-        operating-system: [ubuntu-24.04]
+        operating-system: [ ubuntu-24.04 ]
         # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
         php-version: [ '8.3' ]
         dependency-stability: [ prefer-stable ]
 
-    name: P${{ matrix.php-version }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system }}
+    name: build-laravel - PHP ${{ matrix.php-version }} - ${{ matrix.operating-system }}
 
     steps:
     - uses: actions/checkout@v4.1.7 # Even better: using @<commit-SHA>
@@ -44,7 +44,7 @@ jobs:
       id: vendor-cache
       with:
         path: vendor
-        key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-build-${{ hashFiles('**/composer.lock') }}
 
     - name: Install PHP Dependencies
       if: steps.vendor-cache.outputs.cache-hit != 'true'
