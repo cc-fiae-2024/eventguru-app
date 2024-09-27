@@ -44,6 +44,7 @@ jobs:
     - name: List artifact directories
       run: |
         echo ${{ steps.download-artifact.outputs.download-path }}
+        pwd
         ls -R
 
     - uses: actions/checkout@v4.1.7
@@ -52,7 +53,7 @@ jobs:
       run: |
         echo ${{ steps.download-artifact.outputs.download-path }}
         echo ${{ github.workspace }}
-        ls -R
+        ls -la . public ${{ steps.download-artifact.outputs.download-path }}
 
     - name: Start MySQL service
       run: sudo systemctl start mysql.service
