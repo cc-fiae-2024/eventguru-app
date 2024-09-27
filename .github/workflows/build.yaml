@@ -65,9 +65,14 @@ jobs:
     - name: Build Frontend Assets
       run: npm run build
 
-    - name: Upload Artifacts
+    - name: Upload Build Artifacts
       uses: actions/upload-artifact@v4.4.0
       with:
         name: eventguru-build-${{ github.run_id }}
-        path: |
-          public/build
+        path: public/build
+
+    - name: Upload Vendor Artifacts
+      uses: actions/upload-artifact@v4.4.0
+      with:
+        name: eventguru-vendor-${{ github.run_id }}
+        path: vendor
