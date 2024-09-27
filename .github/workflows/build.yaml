@@ -1,4 +1,4 @@
-name: Build Laravel Github action
+name: Build
 on:
   workflow_call:
 

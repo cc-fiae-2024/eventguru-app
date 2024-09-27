@@ -1,4 +1,4 @@
-name: Test Laravel Github action
+name: Tests
 on:
   pull_request:
     branches:
@@ -30,7 +30,7 @@ jobs:
         php-version: [ '8.3' ]
         dependency-stability: [ prefer-stable ]
 
-    name: php-tests - PHP ${{ matrix.php-version }} - ${{ matrix.operating-system }}
+    name: php-tests - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
 
     steps:
     - uses: actions/checkout@v4.1.7
