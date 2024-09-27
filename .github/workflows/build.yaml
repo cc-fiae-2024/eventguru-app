@@ -15,7 +15,7 @@ jobs:
         php-version: [ '8.3' ]
         dependency-stability: [ prefer-stable ]
 
-    name: build-laravel - PHP ${{ matrix.php-version }} - ${{ matrix.operating-system }}
+    name: build-laravel - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
 
     steps:
     - uses: actions/checkout@v4.1.7 # Even better: using @<commit-SHA>
