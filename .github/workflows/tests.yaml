@@ -33,6 +33,8 @@ jobs:
     name: P${{ matrix.php-version }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system }}
 
     steps:
+    - uses: actions/checkout@v4.1.7
+
     - name: Download build artifact
       id: download-artifact
       uses: actions/download-artifact@v4.1.8
@@ -40,14 +42,6 @@ jobs:
         # Pick up the folder from build.yaml Upload (name must match)
         name: eventguru-build-${{ github.run_id }}
         path: public/build
-
-    - name: List artifact directories
-      run: |
-        echo ${{ steps.download-artifact.outputs.download-path }}
-        pwd
-        ls -R
-
-    - uses: actions/checkout@v4.1.7
 
     - name: List working directory
       run: |
