@@ -33,6 +33,9 @@ jobs:
     name: P${{ matrix.php-versions }} - L${{ matrix.laravel }} - ${{ matrix.dependency-stability }} - ${{ matrix.operating-system}}
 
     steps:
+    - name: Debug
+      run: echo "Run-id ${{ github.event.workflow_run.id }} because ${{ github.event.workflow_run.conclusion }}"
+
     - name: Download build artifact
       uses: actions/download-artifact@v4.1.8
       with:
