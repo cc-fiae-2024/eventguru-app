@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - develop
+      - 'dependabot/**'
 
 env:
   DB_CONNECTION: mysql
@@ -27,7 +28,7 @@ jobs:
       matrix:
         operating-system: [ ubuntu-24.04 ]
         # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
-        php-version: [ '8.3' ]
+        php-version: [ '8.2', '8.3' ]
         dependency-stability: [ prefer-stable ]
 
     name: php-tests - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
@@ -58,7 +59,7 @@ jobs:
       id: vendor-cache
       with:
         path: vendor
-        key: ${{ runner.OS }}-build-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.OS }}-build-php${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
 
     - name: Prepare Laravel Application
       run: |

@@ -12,7 +12,7 @@ jobs:
       matrix:
         operating-system: [ ubuntu-24.04 ]
         # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
-        php-version: [ '8.3' ]
+        php-version: [ '8.2', '8.3' ]
         dependency-stability: [ prefer-stable ]
 
     name: build-laravel - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
@@ -34,17 +34,16 @@ jobs:
       id: actions-cache
       with:
         path: ${{ steps.composer-cache.outputs.dir }}
-        # could be extended in case multiple PHP versions are in use
-        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-composer-php${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
         restore-keys: |
-          ${{ runner.os }}-composer-
+          ${{ runner.os }}-composer-php${{ matrix.php-version }}-
 
     - name: Restore vendor from cache
       uses: actions/cache@v4.0.2
       id: vendor-cache
       with:
         path: vendor
-        key: ${{ runner.os }}-build-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-build-php${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
