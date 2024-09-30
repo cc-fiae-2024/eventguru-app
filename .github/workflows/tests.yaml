@@ -65,6 +65,11 @@ jobs:
         php -r "file_exists('.env') || copy('.env.example', '.env');"
         php artisan key:generate
 
+    - name: Prepare Laravel Application
+      run: |
+        php -r "file_exists('.env') || copy('.env.example', '.env');"
+        php artisan key:generate
+
     - name: Run Migrations
       run: php artisan migrate
 
