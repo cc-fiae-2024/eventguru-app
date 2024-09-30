@@ -43,7 +43,7 @@ jobs:
       id: vendor-cache
       with:
         path: vendor
-        key: ${{ runner.os }}-build-php${{ matrix.php_version }}-${{ hashFiles('**/composer.lock') }}
+        key: ${{ runner.os }}-build-php${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
