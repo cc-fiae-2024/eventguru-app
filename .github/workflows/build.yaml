@@ -12,7 +12,7 @@ jobs:
       matrix:
         operating-system: [ ubuntu-24.04 ]
         # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
-        php-version: [ '8.3' ]
+        php-version: [ '8.2', '8.3' ]
         dependency-stability: [ prefer-stable ]
 
     name: build-laravel - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})

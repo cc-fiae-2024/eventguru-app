@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - develop
+      - 'dependabot/**'
 
 env:
   DB_CONNECTION: mysql
