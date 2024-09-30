@@ -1,0 +1,87 @@
+name: Build
+on:
+  workflow_call:
+
+jobs:
+  build-php:
+    # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
+    runs-on: ubuntu-24.04
+    environment: testing
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-24.04 ]
+        # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
+        php-version: [ '8.3' ]
+        dependency-stability: [ prefer-stable ]
+
+    name: build-laravel - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
+
+    steps:
+    - uses: actions/checkout@v4.1.7 # Even better: using @<commit-SHA>
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@2.31.1
+      with:
+        php-version: ${{ matrix.php-version }}
+
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: |
+        echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+    - uses: actions/cache@v4.0.2
+      id: actions-cache
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        # could be extended in case multiple PHP versions are in use
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-composer-
+
+    - name: Restore vendor from cache
+      uses: actions/cache@v4.0.2
+      id: vendor-cache
+      with:
+        path: vendor
+        key: ${{ runner.os }}-build-${{ hashFiles('**/composer.lock') }}
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate --strict
+
+    - name: Install PHP Dependencies
+      if: steps.vendor-cache.outputs.cache-hit != 'true'
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
+    - name: Directory Permissions
+      run: chmod -R 777 storage bootstrap/cache
+
+  build-node:
+    runs-on: ubuntu-24.04
+    environment: testing
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-24.04 ]
+
+    steps:
+      - uses: actions/checkout@v4.1.7 # Even better: using @<commit-SHA>
+
+      - name: Setup Node
+        uses: actions/setup-node@v4.0.4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Node Dependencies
+        # TODO: Test, whether --ignore-scripts work here, as this is helping in hardening (preventing postinstall scripts)
+        run: npm ci
+
+      - name: Build Frontend Assets
+        run: npm run build
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4.4.0
+        with:
+          name: eventguru-build-${{ github.run_id }}
+          path: public/build
