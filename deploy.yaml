@@ -1,0 +1,21 @@
+import:
+  - recipe/laravel.php
+
+config:
+  repository: 'git@github.com:cc-fiae-2024/eventguru-app.git'
+
+hosts:
+  iocaste.uberspace.de:
+    labels:
+      stage: prod
+    remote_user: ccfiae24
+    http_user: apache
+    deploy_path: '/var/www/virtual/ccfiae24/eventguru'
+    git_ssh_command: ssh
+
+tasks:
+  build:
+    - run: uptime
+
+after:
+  deploy:failed: deploy:unlock
