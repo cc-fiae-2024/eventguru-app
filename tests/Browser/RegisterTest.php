@@ -1,6 +1,9 @@
 <?php
 
+use Illuminate\Foundation\Testing\DatabaseTruncation;
 use Laravel\Dusk\Browser;
+
+uses(DatabaseTruncation::class);
 
 test('loads', function () {
     $this->browse(function (Browser $browser) {
@@ -17,6 +20,7 @@ test('submits', function () {
                 ->type('password', 'secret123!')
                 ->type('password_confirmation', 'secret123!')
                 ->check('terms')
+                ->check('newsletter')
                 ->press("Los geht's!")
                 ->assertPathIs('/dashboard');
     });
