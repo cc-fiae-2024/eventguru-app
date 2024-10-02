@@ -18,4 +18,21 @@
             ],
             'subtitle' => 'Beginne deine Momente',
         ],
+        'signin' => [
+            'form' => [
+                'email' => 'E-Mail',
+                'email_placeholder' => 'Gebe deine E-Mail-Adresse ein',
+                'password' => 'Passwort',
+                'password_placeholder' => 'Passwort',
+                'remember_me' => 'Erinner mich',
+                'register' => 'Du hast noch kein Konto? :signup',
+                'signin' => 'Anmelden',
+            ],
+            'headline' => 'Einloggen',
+            'link' => [
+                'password_request' => 'Passwort vergessen',
+                'register' => 'Registrieren',
+            ],
+            'subtitle' => 'Willkommen zurück! Bitte gebe deine Daten ein.',
+        ],
     ];
