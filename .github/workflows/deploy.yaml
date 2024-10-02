@@ -8,9 +8,12 @@ env:
   PHP_VERSION: 8.3
 
 jobs:
+  tests:
+    uses: './.github/workflows/tests.yaml'
+
   deploy:
     runs-on: ubuntu-24.04
-    uses: './.github/workflows/tests.yaml'
+    needs: [ tests ]
     environment: Production
 
     steps:
