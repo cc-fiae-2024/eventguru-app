@@ -18,4 +18,21 @@
             ],
             'subtitle' => 'Start your moments',
         ],
+        'signin' => [
+            'form' => [
+                'email' => 'Email',
+                'email_placeholder' => 'Enter your email address',
+                'password' => 'Password',
+                'password_placeholder' => 'Password',
+                'register' => 'You have no account yet? :signup',
+                'remember_me' => 'Remember me',
+                'signin' => 'Log in',
+            ],
+            'headline' => 'Login',
+            'link' => [
+                'password_request' => 'Forgot your password?',
+                'register' => 'Register',
+            ],
+            'subtitle' => 'Welcome back! Please enter your data.'
+        ]
     ];
