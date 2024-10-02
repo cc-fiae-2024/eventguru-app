@@ -8,18 +8,17 @@ env:
   PHP_VERSION: 8.3
 
 jobs:
-  tests:
-    env:
-      DB_CONNECTION: mysql
-      DB_HOST: 127.0.0.1
-      DB_USER: ${{ secrets.DB_USER }}
-      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DB_DATABASE: testing
-    uses: './.github/workflows/tests.yaml'
+  build:
+    uses: './.github/workflows/build.yaml'
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-24.04 ]
+        php-version: [ '8.3' ]
+        dependency-stability: [ prefer-stable ]
 
   deploy:
     runs-on: ubuntu-24.04
-    needs: tests
+    needs: build
     environment: Production
 
     steps:
