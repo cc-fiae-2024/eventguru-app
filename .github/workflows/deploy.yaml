@@ -15,8 +15,10 @@ jobs:
 
   deploy:
     runs-on: ubuntu-24.04
-    needs: [ tests ]
-    environment: Production
+    needs: tests
+    environment:
+      - name: Production
+      - url: https://eventguru.fun
 
     steps:
       - uses: actions/checkout@v4.1.7
