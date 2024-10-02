@@ -50,7 +50,7 @@
             @endif
 
             <div class="mt-4">
-                <x-label for="terms">
+                <x-label for="newsletter">
                     <div class="flex items-center">
                         <x-checkbox name="newsletter" id="newsletter" required />
                         <div class="ms-2">
