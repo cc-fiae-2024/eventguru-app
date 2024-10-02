@@ -1,0 +1,29 @@
+name: Deploy
+on:
+  pull_request:
+    branches:
+      - workflow-deployer
+
+env:
+  PHP_VERSION: 8.3
+
+jobs:
+  deploy:
+    runs-on: ubuntu-24.04
+    uses: './.github/workflows/tests.yaml'
+    environment: Production
+
+    steps:
+      - uses: actions/checkout@v4.1.7
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@2.31.1
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+
+      - name: Restore vendor from cache
+        uses: actions/cache@v4.0.2
+        id: vendor-cache
+        with:
+          path: vendor
+          key: ${{ runner.os }}-build-php${{ env.PHP_VERSION }}-${{ hashFiles('**/composer.lock') }}
