@@ -37,7 +37,7 @@ jobs:
           key: ${{ runner.os }}-build-php${{ env.PHP_VERSION }}-${{ hashFiles('**/composer.lock') }}
 
       - name: Deploy
-        uses: deployphp/action@v1
+        uses: deployphp/action@v1.0.23
         with:
           private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           dep: deploy
