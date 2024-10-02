@@ -36,6 +36,13 @@ jobs:
           path: vendor
           key: ${{ runner.os }}-build-php${{ env.PHP_VERSION }}-${{ hashFiles('**/composer.lock') }}
 
+      - name: Download build artifact
+        id: download-build-artifact
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: eventguru-build-${{ github.run_id }}
+          path: public/build
+
       - name: Deploy
         uses: deployphp/action@v1.0.23
         with:
