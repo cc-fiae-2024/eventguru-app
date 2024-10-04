@@ -1,22 +1,21 @@
 name: Deploy
 on:
-  push:
+  pull_request:
+    types:
+      - closed
     branches:
-      - workflow-deployer
+      - main
 
 env:
   PHP_VERSION: 8.3
 
 jobs:
   build:
+    if: github.event.pull_request.merged == true
     uses: './.github/workflows/build.yaml'
-    strategy:
-      matrix:
-        operating-system: [ ubuntu-24.04 ]
-        php-version: [ '8.3' ]
-        dependency-stability: [ prefer-stable ]
 
   deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-24.04
     needs: build
     environment: Production
