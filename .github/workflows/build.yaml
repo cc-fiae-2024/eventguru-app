@@ -6,7 +6,6 @@ jobs:
   build-php:
     # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
     runs-on: ubuntu-24.04
-    environment: testing
 
     strategy:
       matrix:
@@ -57,7 +56,6 @@ jobs:
 
   build-node:
     runs-on: ubuntu-24.04
-    environment: testing
 
     strategy:
       matrix:
