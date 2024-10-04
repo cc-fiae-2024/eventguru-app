@@ -1,6 +1,17 @@
 <?php
 
 return [
+    'event_overview' => [
+        'heading' => 'Menu',
+        'menu_button' => 'Menu',
+        'nav' => [
+            'events' => 'Events',
+            'home' => 'Home',
+            'mails' => 'Mails',
+            'notifications' => 'Notifications',
+            'profile' => 'Profile',
+        ],
+    ],
     'register' => [
         'form' => [
             'email' => 'Email',
