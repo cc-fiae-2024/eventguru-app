@@ -11,6 +11,11 @@ return [
             'notifications' => 'Notifications',
             'profile' => 'Profile',
         ],
+        'search' => [
+            'label' => 'Search',
+            'placeholder' => 'Search',
+            'submit' => 'Search',
+        ],
     ],
     'register' => [
         'form' => [
