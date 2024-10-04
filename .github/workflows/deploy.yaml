@@ -56,4 +56,4 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           source: public/build
-          target: /var/www/virtual/${{ secrets.DEPLOY_USER }}/eventguru/current/public/build
+          target: /var/www/virtual/${{ secrets.DEPLOY_USER }}/eventguru/current
