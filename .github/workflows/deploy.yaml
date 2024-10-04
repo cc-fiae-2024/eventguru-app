@@ -13,7 +13,7 @@ jobs:
     strategy:
       matrix:
         operating-system: [ ubuntu-24.04 ]
-        php-version: [ '8.3' ]
+        php-version: [ '${{ env.PHP_VERSION }}' ]
         dependency-stability: [ prefer-stable ]
 
   deploy:
@@ -49,11 +49,11 @@ jobs:
           private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
           dep: deploy
 
-      - name: Copy folder content recursively to remote
-        uses: garygrossgarten/github-action-scp@0.9.0
+      - name: Copy build assets to public path on server
+        uses: appleboy/scp-action@v0.1.7
         with:
-          local: public/build
-          remote: /var/www/virtual/${{ secrets.DEPLOY_USER }}/eventguru/current/public/build
           host: ${{ secrets.DEPLOY_HOST }}
           username: ${{ secrets.DEPLOY_USER }}
-          privateKey: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          source: public/build/*
+          target: /var/www/virtual/${{ secrets.DEPLOY_USER }}/eventguru/current/public/build

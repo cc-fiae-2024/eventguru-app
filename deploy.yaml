@@ -3,6 +3,7 @@ import:
 
 config:
   repository: 'git@github.com:cc-fiae-2024/eventguru-app.git'
+  allow_anonymous_stats: false
 
 hosts:
   iocaste.uberspace.de:
@@ -11,6 +12,7 @@ hosts:
     remote_user: ccfiae24
     http_user: apache
     deploy_path: '/var/www/virtual/ccfiae24/eventguru'
+    branch: main
     git_ssh_command: ssh
 
 tasks:
@@ -19,3 +21,6 @@ tasks:
 
 after:
   deploy:failed: deploy:unlock
+  deploy:cleanup:
+   - artisan:cache:clear
+   - artisan:optimize
