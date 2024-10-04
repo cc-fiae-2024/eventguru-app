@@ -49,7 +49,7 @@ jobs:
         key: ${{ runner.OS }}-build-php${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
 
     - name: Run Pint (Laravel linter)
-      run: ./vendor/bin/sail pint --bail
+      run: ./vendor/bin/pint --bail
 
   npm-lint:
     needs: [ build ]
