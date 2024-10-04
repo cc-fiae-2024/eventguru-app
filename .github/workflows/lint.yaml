@@ -49,14 +49,7 @@ jobs:
     runs-on: ubuntu-24.04
     environment: testing
 
-    strategy:
-      matrix:
-        operating-system: [ ubuntu-24.04 ]
-        # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
-        php-version: [ '8.2', '8.3' ]
-        dependency-stability: [ prefer-stable ]
-
-    name: npm-lint - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
+    name: npm-lint - PHP 8.3 (ubuntu-24.04)
 
     steps:
     - uses: actions/checkout@v4.1.7
