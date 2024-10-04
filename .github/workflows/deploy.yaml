@@ -1,0 +1,58 @@
+name: Deploy
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+env:
+  PHP_VERSION: 8.3
+
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    uses: './.github/workflows/build.yaml'
+
+  deploy:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-24.04
+    needs: build
+    environment: Production
+
+    steps:
+      - uses: actions/checkout@v4.1.7
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@2.31.1
+        with:
+          php-version: ${{ env.PHP_VERSION }}
+
+      - name: Restore vendor from cache
+        uses: actions/cache@v4.0.2
+        id: vendor-cache
+        with:
+          path: vendor
+          key: ${{ runner.os }}-build-php${{ env.PHP_VERSION }}-${{ hashFiles('**/composer.lock') }}
+
+      - name: Download build artifact
+        id: download-build-artifact
+        uses: actions/download-artifact@v4.1.8
+        with:
+          name: eventguru-build-${{ github.run_id }}
+          path: public/build
+
+      - name: Deploy
+        uses: deployphp/action@v1.0.23
+        with:
+          private-key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          dep: deploy
+
+      - name: Copy build assets to public path on server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_PRIVATE_KEY }}
+          source: public/build
+          target: /var/www/virtual/${{ secrets.DEPLOY_USER }}/eventguru/current
