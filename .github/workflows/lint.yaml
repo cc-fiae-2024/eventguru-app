@@ -64,7 +64,7 @@ jobs:
         php-version: [ '8.2', '8.3' ]
         dependency-stability: [ prefer-stable ]
 
-    name: php-browser-tests - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
+    name: npm-lint - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
 
     steps:
     - uses: actions/checkout@v4.1.7
@@ -77,5 +77,15 @@ jobs:
         name: eventguru-build-${{ github.run_id }}
         path: public/build
 
-    - name: Run Pint (Laravel linter)
-      run: ./node_modules/.bin/prettier resources/{js,markdown,sass} --check
+    - name: Setup Node
+      uses: actions/setup-node@v4.0.4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    - name: Install Node Dependencies
+      # TODO: Test, whether --ignore-scripts work here, as this is helping in hardening (preventing postinstall scripts)
+      run: npm ci
+
+    - name: Run Prettier (Frontend linter)
+      run: ls && ./node_modules/.bin/prettier resources/{js,markdown,sass} --check
