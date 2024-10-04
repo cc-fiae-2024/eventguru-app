@@ -12,7 +12,7 @@ hosts:
     remote_user: ccfiae24
     http_user: apache
     deploy_path: '/var/www/virtual/ccfiae24/eventguru'
-    branch: main
+    branch: develop
     git_ssh_command: ssh
 
 tasks:
