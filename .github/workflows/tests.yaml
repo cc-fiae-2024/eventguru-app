@@ -78,6 +78,10 @@ jobs:
     runs-on: ubuntu-24.04
     environment: testing
 
+    env:
+      APP_URL: "http://127.0.0.1:8000"
+      MAIL_MAILER: log
+
     strategy:
       matrix:
         operating-system: [ ubuntu-24.04 ]
@@ -129,7 +133,7 @@ jobs:
 
     # Start the Chrome driver so we're able to run browser tests with Chrome
     - name: Start Chrome Driver
-      run: ./vendor/laravel/dusk/bin/chromedriver-linux &
+      run: ./vendor/laravel/dusk/bin/chromedriver-linux --port=9515 &
 
     # Start a basic Laravel server with no reloading
     - name: Run Laravel Server
@@ -137,7 +141,7 @@ jobs:
 
     # Run our Dusk test suite. This could be different if you don't use Pest (e.g. php artisan dusk)
     - name: Execute tests
-      run: php artisan pest:dusk
+      run: php artisan dusk
 
     # If there's a failure, upload the Dusk screenshots as an artifact
     - name: Upload Screenshots
