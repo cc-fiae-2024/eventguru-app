@@ -4,9 +4,9 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "lint": "prettier ./resources/{js,sass,markdown}",
-        "lint:check": "prettier ./resources/{js,sass,markdown} --check",
-        "lint:fix": "prettier ./resources/{js,sass,markdown} --write"
+        "lint": "prettier resources",
+        "lint:check": "prettier resources --check",
+        "lint:fix": "prettier resources --write"
     },
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.7",
