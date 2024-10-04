@@ -88,4 +88,4 @@ jobs:
       run: npm ci
 
     - name: Run Prettier (Frontend linter)
-      run: ls && ./node_modules/.bin/prettier resources/{js,markdown,sass} --check
+      run: ./node_modules/.bin/prettier resources/{js,markdown,sass} --check
