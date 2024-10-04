@@ -1,7 +1,7 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <div class="offset-sm-3 col-6 text-center">
+            <div class="offset-sm-4 col-sm-4 col-12 text-center">
                 <x-authentication-card-logo />
                 <h1 class="display-2">{{ __('messages.signin.headline') }}</h1>
                 <p>{{ __('messages.signin.subtitle') }}</p>
@@ -16,7 +16,7 @@
             </div>
         @endsession
 
-        <form method="POST" action="{{ route('login') }}" class="offset-sm-3 col-6">
+        <form method="POST" action="{{ route('login') }}" class="offset-sm-4 col-sm-4 col-12 px-2">
             @csrf
 
             <div>
