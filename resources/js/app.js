@@ -1,5 +1,5 @@
 // The Bootstrap Framework
-import 'bootstrap';
+import "bootstrap";
 
 // Laravel Axios
-import './bootstrap';
+import "./bootstrap";

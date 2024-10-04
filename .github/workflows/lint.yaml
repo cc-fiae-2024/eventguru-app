@@ -1,0 +1,81 @@
+name: Lint
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+      - 'dependabot/**'
+
+jobs:
+  build:
+    uses: './.github/workflows/build.yaml'
+
+  php-lint:
+    needs: [ build ]
+    # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
+    runs-on: ubuntu-24.04
+    environment: testing
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-24.04 ]
+        # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
+        php-version: [ '8.2', '8.3' ]
+        dependency-stability: [ prefer-stable ]
+
+    name: php-lint - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
+
+    steps:
+    - uses: actions/checkout@v4.1.7
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@2.31.1
+      with:
+        php-version: ${{ matrix.php-version }}
+
+    - name: Download build artifact
+      id: download-build-artifact
+      uses: actions/download-artifact@v4.1.8
+      with:
+        # Pick up the folder from build.yaml Upload (name must match)
+        name: eventguru-build-${{ github.run_id }}
+        path: public/build
+
+    - name: Restore vendor from Cache
+      uses: actions/cache@v4.0.2
+      id: vendor-cache
+      with:
+        path: vendor
+        key: ${{ runner.OS }}-build-php${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
+
+    - name: Run Pint (Laravel linter)
+      run: ./vendor/bin/sail pint --bail
+
+  npm-lint:
+    needs: [ build ]
+    # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
+    runs-on: ubuntu-24.04
+    environment: testing
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-24.04 ]
+        # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
+        php-version: [ '8.2', '8.3' ]
+        dependency-stability: [ prefer-stable ]
+
+    name: php-browser-tests - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
+
+    steps:
+    - uses: actions/checkout@v4.1.7
+
+    - name: Download build artifact
+      id: download-build-artifact
+      uses: actions/download-artifact@v4.1.8
+      with:
+        # Pick up the folder from build.yaml Upload (name must match)
+        name: eventguru-build-${{ github.run_id }}
+        path: public/build
+
+    - name: Run Pint (Laravel linter)
+      run: ./node_modules/.bin/prettier resources/{js,markdown,sass} --check
