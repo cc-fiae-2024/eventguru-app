@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'dashboard' => [
+        'headline' => 'Dein Event in der Umgebung',
+    ],
     'event_overview' => [
         'heading' => 'Menü',
         'menu_button' => 'Menü',

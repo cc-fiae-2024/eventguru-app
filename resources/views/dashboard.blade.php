@@ -1,10 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
         <div>
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-                {{ __('messages.event_overview.heading') }}
-            </h2>
-
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid flex-row-reverse">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('messages.event_overview.menu_button') }}">
@@ -15,7 +11,7 @@
                     <div class="collapse navbar-collapse visible" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link text-gray-900 dark:text-gray-100" href="#">
                                     <i class="bi bi-house" aria-hidden="true"></i>
                                     <span class="visually-hidden-focusable">
                                         {{ __('messages.event_overview.nav.home') }}
@@ -26,7 +22,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link text-gray-900 dark:text-gray-100" href="#">
                                     <i class="bi bi-bell" aria-hidden="true"></i>
                                     <span class="visually-hidden-focusable">
                                         {{ __('messages.event_overview.nav.notifications') }}
@@ -37,7 +33,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link text-gray-900 dark:text-gray-100" href="#">
                                     <i class="bi bi-calendar2-event" aria-hidden="true"></i>
                                     <span class="visually-hidden-focusable">
                                         {{ __('messages.event_overview.nav.events') }}
@@ -48,7 +44,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link text-gray-900 dark:text-gray-100" href="#">
                                     <i class="bi bi-person-circle" aria-hidden="true"></i>
                                     <span class="visually-hidden-focusable">
                                         {{ __('messages.event_overview.nav.profile') }}
@@ -59,7 +55,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">
+                                <a class="nav-link text-gray-900 dark:text-gray-100" href="#">
                                     <i class="bi bi-envelope" aria-hidden="true"></i>
                                     <span class="visually-hidden-focusable">
                                         {{ __('messages.event_overview.nav.mails') }}
@@ -82,7 +78,7 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-xl sm:rounded-lg">
+            <div class="bg-white dark:!bg-gray-800 text-gray-900 dark:text-gray-100 overflow-hidden shadow-xl sm:rounded-lg">
                 <x-welcome />
             </div>
         </div>
