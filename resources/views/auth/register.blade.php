@@ -1,16 +1,16 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <div class="col-10 text-center pt-4 mx-auto">
+            <div class="text-center">
                 <x-authentication-card-logo />
-                <h1 class="display-2">{{ __('messages.register.headline') }}</h1>
+                <h1 class="display-2 pt-2">{{ __('messages.register.headline') }}</h1>
                 <p>{{ __('messages.register.subtitle') }}</p>
             </div>
         </x-slot>
 
         <x-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}" class="col-10 col-md-6 mx-auto pt-4">
+        <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>
