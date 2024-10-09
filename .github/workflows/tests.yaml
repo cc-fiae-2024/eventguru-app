@@ -159,7 +159,7 @@ jobs:
       if: failure()
       uses: actions/upload-artifact@v4.4.0
       with:
-        name: screenshots-${{ github.run_id }}-${{ matrix.phpversion }}
+        name: screenshots-${{ github.run_id }}-${{ matrix.php-version }}
         path: tests/Browser/screenshots
         retention-days: 7
 
@@ -168,6 +168,6 @@ jobs:
       if: failure()
       uses: actions/upload-artifact@v4.4.0
       with:
-        name: console-${{ github.run_id }}-${{ matrix.phpversion }}
+        name: console-${{ github.run_id }}-${{ matrix.php-version }}
         path: tests/Browser/console
         retention-days: 7
