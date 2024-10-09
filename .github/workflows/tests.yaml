@@ -6,7 +6,15 @@ on:
     branches:
       - main
       - develop
+
+  pull_request_target:
+    types:
+      - opened
+    branches:
       - 'dependabot/**'
+    paths:
+      - 'composer.*'
+      - 'package*.json'
 
 env:
   DB_CONNECTION: mysql
