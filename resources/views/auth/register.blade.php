@@ -1,16 +1,16 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <div class="offset-sm-3 col-6 text-center">
+            <div class="text-center">
                 <x-authentication-card-logo />
-                <h1 class="display-2">{{ __('messages.register.headline') }}</h1>
+                <h1 class="display-2 pt-2">{{ __('messages.register.headline') }}</h1>
                 <p>{{ __('messages.register.subtitle') }}</p>
             </div>
         </x-slot>
 
         <x-validation-errors class="mb-4" />
 
-        <form method="POST" action="{{ route('register') }}" class="offset-sm-3 col-6">
+        <form method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>
@@ -76,5 +76,6 @@
                 </p>
             </div>
         </form>
-    </x-authentication-card>
+
+</x-authentication-card>
 </x-guest-layout>
