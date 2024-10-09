@@ -2,19 +2,13 @@ name: Tests
 on:
   workflow_call:
 
-  pull_request:
-    branches:
-      - main
-      - develop
-
   pull_request_target:
     types:
       - opened
+      - synchronize  # optional to react on PR updated
     branches:
-      - 'dependabot/**'
-    paths:
-      - 'composer.*'
-      - 'package*.json'
+      - develop
+      - main
 
 env:
   DB_CONNECTION: mysql
