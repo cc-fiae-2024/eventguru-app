@@ -14,6 +14,8 @@ export default {
     theme: {
         extend: {
             fontFamily: {
+                lato: ['Lato', ...defaultTheme.fontFamily.sans],
+                poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
