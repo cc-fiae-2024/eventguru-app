@@ -52,4 +52,11 @@ return [
         ],
         'subtitle' => 'Welcome back! Please enter your data.',
     ],
+    'welcome' => [
+        'link' => [
+            'dashboard' => 'Dashboard',
+            'login' => 'Log in',
+            'register' => 'Register',
+        ]
+    ],
 ];
