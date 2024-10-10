@@ -14,7 +14,7 @@ class EventController extends Controller
     public function index()
     {
         //$events = Event::all();
-        $events = [0, 2, 3, 4, 5, 3, 5, 3, 5];
+        $events = range(0, random_int(1, 12));
 
         return view('welcome', ['events' => $events]);
     }
