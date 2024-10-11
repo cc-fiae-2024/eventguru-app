@@ -17,10 +17,10 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-white text-black/50 dark:bg-black dark:text-white/50">
+    <body class="font-sans antialiased bg-white text-black/50 dark:bg-black dark:text-white/50 min-h-screen">
 
     {{-- Always dark on purpose --}}
-    <div class="bg-gray-900">
+    <div class="bg-gray-900 min-h-screen flex flex-col">
         <!-- Header -->
         <header class="px-6">
             <nav class="flex items-center justify-between">
@@ -60,12 +60,14 @@
             </nav>
         </header>
 
-        <main class="relative isolate">
+        <aside class="relative isolate">
             <!-- Background -->
             <div class="absolute inset-x-0 top-4 -z-10 flex transform-gpu justify-center overflow-hidden blur-3xl" aria-hidden="true">
                 <div class="aspect-[1108/632] w-[69.25rem] flex-none bg-gradient-to-r from-[#80caff] to-[#4f46e5] opacity-25" style="clip-path: polygon(73.6% 51.7%, 91.7% 11.8%, 100% 46.4%, 97.4% 82.2%, 92.5% 84.9%, 75.7% 64%, 55.3% 47.5%, 46.5% 49.4%, 45% 62.9%, 50.3% 87.2%, 21.3% 64.1%, 0.1% 100%, 5.4% 51.1%, 21.4% 63.9%, 58.9% 0.2%, 73.6% 51.7%)"></div>
             </div>
+        </aside>
 
+        <main class="flex-1">
             <!-- Values section -->
             <div class="mx-auto max-w-7xl px-6 lg:px-8">
                 <div class="mx-auto max-w-2xl lg:mx-0">
@@ -123,11 +125,7 @@
 
             <x-event.list :events="$events"></x-event.list>
         </main>
-
-        <!-- Footer -->
-        <footer class="px-6">
-            <p class="text-xs leading-5 text-gray-400">&copy; {{ \Carbon\Carbon::now()->format('Y') }} EventGuru. All rights reserved.</p>
-        </footer>
+        <x-footer></x-footer>
     </div>
     </body>
 </html>
