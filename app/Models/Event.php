@@ -22,4 +22,29 @@ class Event extends Model
     {
         return 'slug';
     }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'ends_at' => 'datetime',
+            'starts_at' => 'datetime',
+        ];
+    }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<string>
+     */
+    protected $fillable = [
+        'title',
+        'description',
+        'starts_at',
+        'ends_at',
+    ];
 }
