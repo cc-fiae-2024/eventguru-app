@@ -6,7 +6,6 @@ jobs:
   build-php:
     # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
     runs-on: ubuntu-24.04
-    environment: testing
 
     strategy:
       matrix:
@@ -50,14 +49,13 @@ jobs:
 
     - name: Install PHP Dependencies
       if: steps.vendor-cache.outputs.cache-hit != 'true'
-      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --optimize-autoloader --prefer-dist
 
     - name: Directory Permissions
       run: chmod -R 777 storage bootstrap/cache
 
   build-node:
     runs-on: ubuntu-24.04
-    environment: testing
 
     strategy:
       matrix:

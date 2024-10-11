@@ -1,10 +1,14 @@
 name: Tests
 on:
-  pull_request:
+  workflow_call:
+
+  pull_request_target:
+    types:
+      - opened
+      - synchronize  # optional to react on PR updates
     branches:
-      - main
       - develop
-      - 'dependabot/**'
+      - main
 
 env:
   DB_CONNECTION: mysql
@@ -71,3 +75,93 @@ jobs:
 
     - name: Execute tests (Unit and Feature tests) via PestPHP
       run: php artisan test
+
+  php-browser-tests:
+    needs: [ build ]
+    # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
+    runs-on: ubuntu-24.04
+    environment: testing
+
+    env:
+      APP_LOCALE: de
+      APP_URL: "http://127.0.0.1:8000"
+      MAIL_MAILER: log
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-24.04 ]
+        # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
+        php-version: [ '8.2', '8.3' ]
+        dependency-stability: [ prefer-stable ]
+
+    name: php-browser-tests - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
+
+    steps:
+    - uses: actions/checkout@v4.1.7
+
+    - name: Start MySQL service & create testing database
+      run: |
+        sudo systemctl start mysql.service
+        mysql -e "CREATE DATABASE IF NOT EXISTS $DB_DATABASE;" -u"$DB_USER" -p"$DB_PASSWORD"
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@2.31.1
+      with:
+        php-version: ${{ matrix.php-version }}
+
+    - name: Download build artifact
+      id: download-build-artifact
+      uses: actions/download-artifact@v4.1.8
+      with:
+        # Pick up the folder from build.yaml Upload (name must match)
+        name: eventguru-build-${{ github.run_id }}
+        path: public/build
+
+    - name: Restore vendor from Cache
+      uses: actions/cache@v4.0.2
+      id: vendor-cache
+      with:
+        path: vendor
+        key: ${{ runner.OS }}-build-php${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
+
+    - name: Prepare Laravel Application
+      run: |
+        php -r "file_exists('.env') || copy('.env.example', '.env');"
+        php artisan key:generate
+
+    - name: Run Migrations
+      run: php artisan migrate
+
+    # Install the Chrome binaries required for Dusk to run tests
+    - name: Install Chrome binaries
+      run: php artisan dusk:chrome-driver --detect
+
+    # Start the Chrome driver so we're able to run browser tests with Chrome
+    - name: Start Chrome Driver
+      run: ./vendor/laravel/dusk/bin/chromedriver-linux --port=9515 &
+
+    # Start a basic Laravel server with no reloading
+    - name: Run Laravel Server
+      run: php artisan serve --no-reload &
+
+    # Run our Dusk test suite. This could be different if you don't use Pest (e.g. php artisan dusk)
+    - name: Execute tests
+      run: php artisan dusk
+
+    # If there's a failure, upload the Dusk screenshots as an artifact
+    - name: Upload Screenshots
+      if: failure()
+      uses: actions/upload-artifact@v4.4.0
+      with:
+        name: screenshots-${{ github.run_id }}-${{ matrix.php-version }}
+        path: tests/Browser/screenshots
+        retention-days: 7
+
+    # If there's a failure, upload the Dusk console logs as an artifact
+    - name: Upload Console Logs
+      if: failure()
+      uses: actions/upload-artifact@v4.4.0
+      with:
+        name: console-${{ github.run_id }}-${{ matrix.php-version }}
+        path: tests/Browser/console
+        retention-days: 7

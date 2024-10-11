@@ -1,0 +1,67 @@
+name: Lint
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build:
+    uses: './.github/workflows/build.yaml'
+
+  php-lint:
+    needs: [ build ]
+    # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
+    runs-on: ubuntu-24.04
+    environment: testing
+
+    strategy:
+      matrix:
+        operating-system: [ ubuntu-24.04 ]
+        # Limited by https://github.com/shivammathur/setup-php#github-hosted-runners
+        php-version: [ '8.2', '8.3' ]
+        dependency-stability: [ prefer-stable ]
+
+    name: php-lint - PHP ${{ matrix.php-version }} (${{ matrix.operating-system }})
+
+    steps:
+    - uses: actions/checkout@v4.1.7
+
+    - name: Install PHP
+      uses: shivammathur/setup-php@2.31.1
+      with:
+        php-version: ${{ matrix.php-version }}
+
+    - name: Restore vendor from Cache
+      uses: actions/cache@v4.0.2
+      id: vendor-cache
+      with:
+        path: vendor
+        key: ${{ runner.OS }}-build-php${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
+
+    - name: Run Pint (Laravel linter)
+      run: ./vendor/bin/pint --bail
+
+  npm-lint:
+    needs: [ build ]
+    # See https://docs.github.com/en/actions/writing-workflows/choosing-where-your-workflow-runs/choosing-the-runner-for-a-job#standard-github-hosted-runners-for-public-repositories
+    runs-on: ubuntu-24.04
+    environment: testing
+
+    name: npm-lint - PHP 8.3 (ubuntu-24.04)
+
+    steps:
+    - uses: actions/checkout@v4.1.7
+
+    - name: Setup Node
+      uses: actions/setup-node@v4.0.4
+      with:
+        node-version: 20
+        cache: 'npm'
+
+    - name: Install Node Dependencies
+      # TODO: Test, whether --ignore-scripts work here, as this is helping in hardening (preventing postinstall scripts)
+      run: npm ci
+
+    - name: Run Prettier (Frontend linter)
+      run: npm run lint:check

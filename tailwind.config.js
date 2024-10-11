@@ -10,10 +10,12 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-
+    //prefix: 'tw-',
     theme: {
         extend: {
             fontFamily: {
+                lato: ['Lato', ...defaultTheme.fontFamily.sans],
+                poppins: ['Poppins', ...defaultTheme.fontFamily.sans],
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
