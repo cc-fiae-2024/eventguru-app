@@ -57,6 +57,6 @@ return [
             'dashboard' => 'Dashboard',
             'login' => 'Einloggen',
             'register' => 'Registrieren',
-        ]
+        ],
     ],
 ];
