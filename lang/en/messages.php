@@ -17,6 +17,13 @@ return [
             'submit' => 'Search',
         ],
     ],
+    'footer' => [
+        'copyright' => 'All rights reserved.',
+        'link' => [
+            'policy' => 'Privacy Policy',
+            'terms' => 'Terms and Conditions',
+        ],
+    ],
     'register' => [
         'form' => [
             'email' => 'Email',

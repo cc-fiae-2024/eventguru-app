@@ -17,6 +17,13 @@ return [
             'submit' => 'Suche',
         ],
     ],
+    'footer' => [
+        'copyright' => 'Alle Rechte vorbehalten',
+        'link' => [
+            'policy' => 'Datenschutz',
+            'terms' => 'Nutzungsbedingungen',
+        ],
+    ],
     'register' => [
         'form' => [
             'email' => 'E-Mail',
