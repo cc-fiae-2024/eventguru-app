@@ -7,13 +7,17 @@
         <i class="bi bi-bell-fill text-xl mx-auto"></i>
     </div>
     <img class="aspect-[14/9] w-full rounded-md object-cover" src="{{  $url }}" alt="">
-    <h3 class="mt-3 mb-0 text-lg font-semibold leading-8 tracking-tight text-white font-poppins">Supergeiles Event</h3>
+    <h3 class="mt-3 mb-0 text-lg font-semibold leading-8 tracking-tight text-white font-poppins">{{  $event->title }}</h3>
     <p class="text-gray-400 mt-0 md:text-xs">
-        veranstaltet von ACME Inc.
+        {{ $event->description }}
     </p>
     <p class="text-base leading-5 m-1">
         <i class="bi bi-calendar2-event mr-0.5"></i>
-        {{ \Carbon\Carbon::now()->addMonth()->format('D, d.m.y H:i') }}
+        {{  $event->starts_at->format('D, d.m.Y H:i') }}
+    </p>
+    <p class="text-base leading-5 m-1">
+        <i class="bi bi-calendar2-event mr-0.5"></i>
+        {{  $event->ends_at->format('D, d.m.Y H:i') }}
     </p>
     <p class="text-gray-300">
         <i class="bi bi-geo-alt"></i> München

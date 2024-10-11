@@ -123,6 +123,10 @@
                 </dl>
             </div>
 
+            <div class="mx-auto max-w-7xl px-6 lg:px-8 relative text-center">
+                <a href="{{ route('events.create') }}">NEW EVENT</a>
+            </div>
+
             <x-event.list :events="$events"></x-event.list>
         </main>
         <x-footer></x-footer>

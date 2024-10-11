@@ -17,6 +17,18 @@ return [
             'submit' => 'Suche',
         ],
     ],
+    'events' => [
+        'form' => [
+            'description' => 'Beschreibung',
+            'ends_at' => 'Ende',
+            'starts_at' => 'Beginn',
+            'submit' => 'Veranstaltung erstellen',
+            'title' => 'Name',
+        ],
+        'heading' => [
+            'create' => 'Neue Veranstaltung',
+        ],
+    ],
     'footer' => [
         'copyright' => 'Alle Rechte vorbehalten',
         'link' => [
