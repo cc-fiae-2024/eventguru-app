@@ -13,11 +13,11 @@
     </p>
     <p class="text-base leading-5 m-1">
         <i class="bi bi-calendar2-event mr-0.5"></i>
-        {{  $event->starts_at->format('D, d.m.Y H:i') }}
+        {{ $event->starts_at->format('D, d.m.Y H:i') }}
     </p>
     <p class="text-base leading-5 m-1">
         <i class="bi bi-calendar2-event mr-0.5"></i>
-        {{  $event->ends_at->format('D, d.m.Y H:i') }}
+        {{ $event->ends_at->format('D, d.m.Y H:i') }}
     </p>
     <p class="text-gray-300">
         <i class="bi bi-geo-alt"></i> München
