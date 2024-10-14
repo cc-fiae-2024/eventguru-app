@@ -39,6 +39,7 @@
                     </x-button>
                 </div>
             </form>
+            <a href="{{ route('events.index') }}">CANCEL</a>
         </div>
     </section>
 </x-guest-layout>
