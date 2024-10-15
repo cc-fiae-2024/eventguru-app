@@ -9,4 +9,9 @@ class Organizer extends Model
 {
     /** @use HasFactory<\Database\Factories\OrganizerFactory> */
     use HasFactory;
+
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }
