@@ -17,6 +17,25 @@ return [
             'submit' => 'Search',
         ],
     ],
+    'events' => [
+        'form' => [
+            'description' => 'Description',
+            'ends_at' => 'End',
+            'starts_at' => 'Start',
+            'submit' => 'Create Event',
+            'title' => 'Name',
+        ],
+        'heading' => [
+            'create' => 'New Event',
+        ],
+    ],
+    'footer' => [
+        'copyright' => 'All rights reserved.',
+        'link' => [
+            'policy' => 'Privacy Policy',
+            'terms' => 'Terms and Conditions',
+        ],
+    ],
     'register' => [
         'form' => [
             'email' => 'Email',

@@ -52,7 +52,7 @@
             <div class="mt-4">
                 <x-label for="newsletter">
                     <div class="flex items-center">
-                        <x-checkbox name="newsletter" id="newsletter" required />
+                        <x-checkbox name="newsletter" id="newsletter" />
                         <div class="ms-2">
                             {{ __('messages.register.form.newsletter') }}
                         </div>
