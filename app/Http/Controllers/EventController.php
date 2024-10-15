@@ -24,7 +24,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('event-create');
+        return view('events.create');
     }
 
     /**
@@ -52,7 +52,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        return view('event-show', ['event' => $event]);
+        return view('events.show', ['event' => $event]);
     }
 
     /**
