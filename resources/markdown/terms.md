@@ -47,4 +47,3 @@ Die Verarbeitung personenbezogener Daten erfolgt gemäß der Datenschutzerkläru
 (1) Änderungen oder Ergänzungen dieser AGB bedürfen der Schriftform.
 (2) Sollte eine Bestimmung dieser AGB unwirksam sein oder werden, bleiben die übrigen Bestimmungen unberührt.
 (3) Es gilt das Recht der Bundesrepublik Deutschland.
-
