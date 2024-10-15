@@ -14,7 +14,6 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-        //$events = range(0, random_int(1, 12));
 
         return view('welcome', ['events' => $events]);
     }
@@ -24,7 +23,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('event-create');
+        return view('events.create');
     }
 
     /**
@@ -32,19 +31,16 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        $title = $request->input('title');
-        $description = $request->input('description');
-        $starts_at = $request->input('starts_at');
-        $ends_at = $request->input('ends_at');
-
-        Event::create([
-            'title' => $title,
-            'description' => $description,
-            'starts_at' => $starts_at,
-            'ends_at' => $ends_at,
+        $event = Event::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'starts_at' => $request->starts_at,
+            'ends_at' => $request->ends_at,
         ]);
 
-        return redirect()->route('events.index');
+        return redirect()->route('events.show', [
+            'event' => $event->get,
+        ]);
     }
 
     /**

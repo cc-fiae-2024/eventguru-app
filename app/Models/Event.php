@@ -47,4 +47,9 @@ class Event extends Model
         'starts_at',
         'ends_at',
     ];
+
+    public function organizer(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Organizer::class);
+    }
 }

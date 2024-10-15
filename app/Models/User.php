@@ -66,4 +66,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function organizer(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Organizer::class);
+    }
 }
