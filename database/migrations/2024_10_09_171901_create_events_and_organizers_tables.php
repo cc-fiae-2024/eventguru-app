@@ -78,8 +78,8 @@ return new class extends Migration
                 ->references('id')->on('organizers')
                 ->nullOnDelete()
                 ->cascadeOnUpdate();
-            $table->timestamp('starts_at');
-            $table->timestamp('ends_at');
+            $table->timestamp('starts_at')->useCurrent();
+            $table->timestamp('ends_at')->nullable();
             $table->timestamps();
         });
     }
