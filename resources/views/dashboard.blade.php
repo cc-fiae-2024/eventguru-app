@@ -65,6 +65,16 @@
                                     </span>
                                 </a>
                             </li>
+                            <li>
+                                <!-- Authentication -->
+                                <form method="POST" action="{{ route('logout') }}" x-data>
+                                    @csrf
+                                    <x-dropdown-link href="{{ route('logout') }}"
+                                        @click.prevent="$root.submit();">
+                                        {{ __('Log Out') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </li>
                         </ul>
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search" placeholder="{{ __('messages.event_overview.search.placeholder') }}" aria-label="{{ __('messages.event_overview.search.label') }}">
