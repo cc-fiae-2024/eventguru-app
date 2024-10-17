@@ -14,13 +14,10 @@ class StaedteImport implements ToCollection, WithBatchInserts, WithChunkReading,
 {
     public function collection(Collection $collection)
     {
-        $i = 0;
-
         foreach ($collection as $row) {
             if (empty($row[0])) {
                 break;
             }
-            $i++;
             $area = $row[1];
             $city = $row[6];
             $zipCode = $row[7];
