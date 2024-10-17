@@ -22,6 +22,11 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    public function organizer(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Organizer::class);
+}
+
     /**
      * The attributes that are mass assignable.
      *
