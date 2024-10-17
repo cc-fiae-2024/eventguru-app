@@ -142,6 +142,11 @@ jobs:
         path: vendor
         key: ${{ runner.OS }}-build-php${{ matrix.php-version }}-${{ hashFiles('**/composer.lock') }}
 
+    # This shouldn't happen
+    - name: Install PHP Dependencies if missing
+      if: steps.vendor-cache.outputs.cache-hit != 'true'
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --optimize-autoloader --prefer-dist
+
     - name: Prepare Laravel Application
       run: |
         php -r "file_exists('.env') || copy('.env.example', '.env');"
