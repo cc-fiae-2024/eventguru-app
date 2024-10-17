@@ -4,13 +4,13 @@ namespace App\Imports;
 
 use App\Models\EventPlace;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Concerns\ToCollection;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
+use Maatwebsite\Excel\Concerns\WithColumnLimit;
 use Maatwebsite\Excel\Concerns\WithStartRow;
 
-class StaedteImport implements ToCollection, WithChunkReading, WithStartRow, WithBatchInserts
+class StaedteImport implements ToCollection, WithBatchInserts, WithChunkReading, WithColumnLimit, WithStartRow
 {
     public function collection(Collection $collection)
     {
@@ -20,15 +20,14 @@ class StaedteImport implements ToCollection, WithChunkReading, WithStartRow, Wit
             if (empty($row[0])) {
                 break;
             }
-            Log::info('rowLog'.$i);
             $i++;
             $area = $row[1];
             $city = $row[6];
             $zipCode = $row[7];
 
-            EventPlace::create([
+            EventPlace::firstOrCreate([
                 'area_id' => $area,
-                'name' => $city,
+                'name' => explode(',', $city)[0],
                 'zip_code' => $zipCode,
             ]);
         }
@@ -49,4 +48,8 @@ class StaedteImport implements ToCollection, WithChunkReading, WithStartRow, Wit
         return 1;
     }
 
+    public function endColumn(): string
+    {
+        return 'H';
+    }
 }

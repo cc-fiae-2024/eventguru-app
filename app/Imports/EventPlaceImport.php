@@ -2,7 +2,6 @@
 
 namespace App\Imports;
 
-use Illuminate\Support\Facades\Log;
 use Maatwebsite\Excel\Concerns\Importable;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 use Maatwebsite\Excel\Concerns\WithProgressBar;
@@ -17,10 +16,8 @@ class EventPlaceImport implements WithMultipleSheets, WithProgressBar
      */
     public function sheets(): array
     {
-        Log::info("betreten");
-
         return [
-            "Städte" => new StaedteImport(),
+            'Städte' => new StaedteImport,
         ];
     }
 }
