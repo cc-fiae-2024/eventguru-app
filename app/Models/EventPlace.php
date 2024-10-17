@@ -12,4 +12,8 @@ class EventPlace extends Model
     protected $fillable = ['area_id', 'name', 'zip_code'];
 
     public $timestamps = false;
+
+    public function area(){
+        return $this->belongsTo(Area::class);
+    }
 }

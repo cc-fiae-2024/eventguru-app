@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Event;
+use App\Models\EventPlace;
 
 class EventController extends Controller
 {
@@ -23,7 +24,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        return view('events.create', [
+            'places'=> EventPlace::with('area')->get()
+        ]);
     }
 
     /**
@@ -35,12 +38,16 @@ class EventController extends Controller
         $description = $request->input('description');
         $starts_at = $request->input('starts_at');
         $ends_at = $request->input('ends_at');
+        $zip_code_place = $request->input("event_place");
+        $id_and_place = EventPlace::where("name", $zip_code_place)->first();
 
+        dd($request->all());
         $event = Event::create([
             'title' => $request->title,
             'description' => $request->description,
             'starts_at' => $request->starts_at,
             'ends_at' => $request->ends_at,
+            'event_place_id'=> $id_and_place->id,
         ]);
 
         return redirect()->route('events.show', ['event' => $event]);

@@ -34,6 +34,19 @@
                 </div>
 
                 <div class="mt-4">
+                    <datalist id="vorschlaege">
+                        @foreach($places as $place)
+                        <option value="{{ $place->id }}">
+                            {{ $place->zip_code}} {{ $place->name }}
+                        </option>
+                        @endforeach
+                    </datalist>
+                    <x-label for="event_place" value="{{ __('messages.events.form.place') }}" />
+                    <x-input id="event_place" list="vorschlaege" class="block mt-1 w-full" type="text" name="event_place" :value="old('event_place')" required />
+                    <div>@error('event_place') <span class="text-red-600 dark:text-red-400">{{ $message }}</span> @enderror</div>
+                </div>
+
+                <div class="mt-4">
                     <x-button class="col-12 mx-auto justify-center border-0 bg-primary normal-case tracking-normal">
                         {{ __('messages.events.form.submit') }}
                     </x-button>
