@@ -20,12 +20,12 @@
         {{ $event->ends_at->format('D, d.m.Y H:i') }}
     </p>
     <p class="text-gray-300">
-        <i class="bi bi-geo-alt"></i> München
+        <i class="bi bi-geo-alt"></i> {{ $event->eventPlace->name }}
     </p>
     <div class="flex justify-between">
         <div class="align-middle">
             <i class="bi bi-people-fill text-green-400 placeholder-amber-500"></i>
-            <span>{{  random_int(1, 10) }} Teilnehmer</span>
+            <span>{{ random_int(1, 10) }} Teilnehmer</span>
         </div>
         <div>
             <i class="bi bi-ticket-perforated-fill align-middle"></i> Kostenlos

@@ -12,4 +12,9 @@ class Area extends Model
     protected $fillable = ['id', 'name'];
 
     public $timestamps = false;
+
+    public function eventPlaces()
+    {
+        return $this->hasMany(EventPlace::class);
+    }
 }

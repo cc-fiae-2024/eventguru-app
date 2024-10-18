@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use App\Models\Area;
 use App\Models\Event;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +25,11 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        return view('events.create', [
+            'areas' => Area::with(['eventPlaces' => function ($query) {
+                $query->orderBy('name');
+            }])->orderBy('name')->get(),
+        ]);
     }
 
     /**
@@ -39,6 +44,7 @@ class EventController extends Controller
             'organizer_id' => Auth::user()->organizer->id,
             'starts_at' => $request->starts_at,
             'ends_at' => $request->ends_at,
+            'event_place_id' => $request->event_place,
         ]);
 
         return redirect()->route('events.show', ['event' => $event]);

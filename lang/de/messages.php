@@ -24,6 +24,7 @@ return [
         'form' => [
             'description' => 'Beschreibung',
             'ends_at' => 'Ende',
+            'place' => 'Ort',
             'starts_at' => 'Beginn',
             'submit' => 'Veranstaltung erstellen',
             'title' => 'Name',
