@@ -11,7 +11,7 @@ class StoreEventRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return true;
+        return $this->user()->hasRole('Veranstalter');
     }
 
     /**
@@ -22,7 +22,13 @@ class StoreEventRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|string|min:3|max:255',
+            'description' => 'required|string|min:3|max:4096',
+            'event_type' => 'integer|in:event_types',
+            'event_category' => 'integer|in:event_categories',
+            'event_place' => 'required',
+            'starts_at' => 'required|date',
+            'ends_at' => 'date|after:starts_at',
         ];
     }
 }

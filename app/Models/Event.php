@@ -23,6 +23,11 @@ class Event extends Model
         return 'slug';
     }
 
+    public function organizer(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Organizer::class);
+    }
+
     /**
      * Get the attributes that should be cast.
      *
@@ -44,7 +49,14 @@ class Event extends Model
     protected $fillable = [
         'title',
         'description',
+        'organizer_id',
         'starts_at',
         'ends_at',
+        'event_place_id',
     ];
+
+    public function eventPlace(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(EventPlace::class, 'id', 'event_place_id');
+    }
 }

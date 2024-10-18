@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use App\Models\Area;
 use App\Models\Event;
+use Illuminate\Support\Facades\Auth;
 
 class EventController extends Controller
 {
@@ -23,7 +25,11 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        return view('events.create', [
+            'areas' => Area::with(['eventPlaces' => function ($query) {
+                $query->orderBy('name');
+            }])->orderBy('name')->get(),
+        ]);
     }
 
     /**
@@ -31,16 +37,14 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        $title = $request->input('title');
-        $description = $request->input('description');
-        $starts_at = $request->input('starts_at');
-        $ends_at = $request->input('ends_at');
-
         $event = Event::create([
             'title' => $request->title,
             'description' => $request->description,
+            // TODO: Should check whether the logged in user is in fact an organizer
+            'organizer_id' => Auth::user()->organizer->id,
             'starts_at' => $request->starts_at,
             'ends_at' => $request->ends_at,
+            'event_place_id' => $request->event_place,
         ]);
 
         return redirect()->route('events.show', ['event' => $event]);

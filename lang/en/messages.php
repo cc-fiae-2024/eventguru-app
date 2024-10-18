@@ -1,8 +1,10 @@
 <?php
 
 return [
+    'dashboard' => [
+        'headline' => 'Your event near you',
+    ],
     'event_overview' => [
-        'heading' => 'Menu',
         'menu_button' => 'Menu',
         'nav' => [
             'events' => 'Events',

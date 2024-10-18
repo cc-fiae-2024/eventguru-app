@@ -2,9 +2,14 @@
 
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 
 Route::get('/', function () {
     return view('welcome', ['events' => []]);
+});
+
+Route::get('/impressum', function () {
+    return view('Impressum', ['Impressum' => Str::markdown(file_get_contents(resource_path('markdown/Impressum.md')))]);
 });
 
 Route::resource('/events', EventController::class);

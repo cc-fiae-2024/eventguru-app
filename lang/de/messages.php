@@ -1,6 +1,9 @@
 <?php
 
 return [
+    'dashboard' => [
+        'headline' => 'Dein Event in der Umgebung',
+    ],
     'event_overview' => [
         'heading' => 'Menü',
         'menu_button' => 'Menü',
@@ -21,6 +24,7 @@ return [
         'form' => [
             'description' => 'Beschreibung',
             'ends_at' => 'Ende',
+            'place' => 'Ort',
             'starts_at' => 'Beginn',
             'submit' => 'Veranstaltung erstellen',
             'title' => 'Name',

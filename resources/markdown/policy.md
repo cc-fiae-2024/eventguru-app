@@ -1,49 +1,69 @@
 # Privacy Policy
 
-<!--Erster Entwurf-->
+## Allgemeine Geschäftsbedingungen (AGB) [www.eventguru.fun][Link]
 
-Allgemeine Geschäftsbedingungen (AGB) für www.eventguru.fun
+### 1. Geltungsbereich
 
-§ 1 Geltungsbereich
-(1) Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für die Nutzung der Plattform www.eventguru.fun (im Folgenden „Plattform“), die von [Plattformbetreiber] betrieben wird.
-(2) Die Plattform bietet Veranstaltern die Möglichkeit, ihre Events zu präsentieren und über ein Kalendersystem zu verwalten. Die AGB gelten für alle Verträge zwischen dem Plattformbetreiber und den Nutzern der Plattform, die sich für ein Benutzerkonto registrieren.
+Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, die über die Plattform <www.eventguru.fun> zwischen der eventguru GmbH (nachfolgend "Anbieter" genannt) und den Nutzern (nachfolgend "Nutzer" genannt) abgeschlossen werden. Durch die Nutzung der Plattform erklärt sich der Nutzer mit diesen AGB einverstanden. Diese AGB gelten insbesondere für alle kommerziellen Nutzer der Plattform.
 
-§ 2 Vertragsgegenstand
-(1) Der Plattformbetreiber stellt eine Online-Plattform zur Verfügung, auf der Veranstalter ihre Events präsentieren und über einen Kalender organisieren können.
-(2) Die Plattform bietet Funktionen wie Event-Präsentation, Verwaltung von Terminen über einen Kalender und die Möglichkeit zur Benutzerregistrierung und -anmeldung.
-(3) Der Plattformbetreiber stellt die technischen Voraussetzungen für die Nutzung der Plattform zur Verfügung, haftet jedoch nicht für die Inhalte, die von den Veranstaltern hochgeladen oder bereitgestellt werden.
+### 2. Vertragspartner
 
-§ 3 Registrierung und Benutzerkonto
-(1) Die Nutzung der Plattform setzt eine Registrierung voraus. Hierbei sind die zur Registrierung erforderlichen Angaben vollständig und korrekt anzugeben.
-(2) Jeder Nutzer ist verpflichtet, sein Passwort und die Zugangsdaten sicher zu verwahren und darf diese nicht an Dritte weitergeben.
-(3) Der Plattformbetreiber behält sich das Recht vor, Benutzerkonten zu sperren oder zu löschen, falls ein Verstoß gegen diese AGB vorliegt.
+Vertragspartner für die Nutzung der Plattform ist die
+eventguru GmbH  
+Max Mustermann  
+Musterstraße 123  
+12345 Musterstadt  
+Deutschland  
+E-Mail: [info@eventguru.fun][Kontakt]  
+Telefon: +49 (0) 123 456789
 
-§ 4 Nutzung der Plattform
-(1) Die Plattform darf ausschließlich zu dem Zweck genutzt werden, Events zu präsentieren und zu verwalten.
-(2) Veranstalter dürfen keine rechtswidrigen, obszönen oder irreführenden Inhalte auf der Plattform veröffentlichen.
-(3) Der Plattformbetreiber behält sich das Recht vor, Inhalte, die gegen geltendes Recht oder diese AGB verstoßen, zu entfernen.
+### 3. Leistungen des Anbieters
 
-§ 5 Kalender und Terminverwaltung
-(1) Die Plattform stellt den Veranstaltern ein Kalendersystem zur Verfügung, mit dem sie ihre Events organisieren und verwalten können.
-(2) Termine können von den Veranstaltern hinzugefügt, geändert oder gelöscht werden. Der Plattformbetreiber haftet nicht für falsch eingetragene oder nicht mehr aktuelle Termine.
+Die Plattform bietet Nutzern die Möglichkeit, Veranstaltungen zu erstellen, zu verwalten und zu präsentieren. Nutzer können sich registrieren, um ein Benutzerkonto zu erstellen, über das sie Zugang zu den Funktionen der Plattform erhalten.
 
-§ 6 Gebühren
-(1) Die Nutzung bestimmter Funktionen der Plattform kann kostenpflichtig sein. Die Höhe der Gebühren wird den Nutzern vor Inanspruchnahme der entsprechenden Dienste transparent mitgeteilt.
-(2) Die Gebühren sind sofort nach Rechnungsstellung fällig und können über die auf der Plattform angegebenen Zahlungsmethoden beglichen werden.
+### 4. Registrierung und Benutzerkonto
 
-§ 7 Haftung
-(1) Der Plattformbetreiber haftet nur für Schäden, die auf Vorsatz oder grober Fahrlässigkeit beruhen.
-(2) Der Plattformbetreiber haftet nicht für die Inhalte, die von den Veranstaltern eingestellt werden, sowie für etwaige Ausfälle oder technische Probleme der Plattform.
-(3) Die Veranstalter sind für die Einhaltung aller gesetzlichen Bestimmungen im Zusammenhang mit ihren Events verantwortlich.
+4.1. Um die Dienste der Plattform nutzen zu können, muss sich der Nutzer registrieren und ein Benutzerkonto erstellen.  
+4.2. Der Nutzer verpflichtet sich, bei der Registrierung wahrheitsgemäße und vollständige Angaben zu machen. Änderungen der persönlichen Daten sind dem Anbieter umgehend mitzuteilen.  
+4.3. Der Nutzer ist verpflichtet, seine Zugangsdaten geheim zu halten und unbefugten Dritten nicht zugänglich zu machen. Der Anbieter übernimmt keine Haftung für Schäden, die aus einer Verletzung dieser Verpflichtung entstehen.
 
-§ 8 Datenschutz
-Die Verarbeitung personenbezogener Daten erfolgt gemäß der Datenschutzerklärung, die auf der Plattform einsehbar ist.
+### 5. Nutzungsbedingungen
 
-§ 9 Vertragslaufzeit und Kündigung
-(1) Die Nutzung der Plattform ist zeitlich unbegrenzt, sofern nicht anders vereinbart.
-(2) Der Nutzer kann sein Benutzerkonto jederzeit ohne Angabe von Gründen kündigen. Der Plattformbetreiber kann das Benutzerkonto bei Verstößen gegen diese AGB nach vorheriger Abmahnung kündigen.
+5.1. Die Nutzung der Plattform erfolgt auf eigene Verantwortung des Nutzers.  
+5.2. Der Nutzer verpflichtet sich, die Plattform nicht für illegale oder unrechtmäßige Zwecke zu nutzen.  
+5.3. Der Anbieter behält sich das Recht vor, Inhalte, die gegen diese AGB oder geltendes Recht verstoßen, zu sperren oder zu löschen.
 
-§ 10 Schlussbestimmungen
-(1) Änderungen oder Ergänzungen dieser AGB bedürfen der Schriftform.
-(2) Sollte eine Bestimmung dieser AGB unwirksam sein oder werden, bleiben die übrigen Bestimmungen unberührt.
-(3) Es gilt das Recht der Bundesrepublik Deutschland.
+### 6. Rechte und Pflichten der Nutzer
+
+6.1. Der Nutzer hat das Recht, seine Veranstaltungen auf der Plattform zu veröffentlichen und zu verwalten.  
+6.2. Der Nutzer ist dafür verantwortlich, dass die von ihm veröffentlichten Inhalte nicht gegen Rechte Dritter verstoßen.  
+6.3. Der Anbieter übernimmt keine Haftung für die von Nutzern veröffentlichten Inhalte.
+
+### 7. Datenschutz
+
+Der Schutz personenbezogener Daten ist uns wichtig. Die Datenschutzerklärung auf unserer Webseite informiert die Nutzer über die Erhebung, Verarbeitung und Nutzung personenbezogener Daten gemäß der EU-Datenschutzgrundverordnung (DSGVO) und den neuen Regelungen des Digitalen-Dienste-Gesetzes (DDG), einschließlich der Verantwortung für die Meldung potenzieller Straftaten an die zuständigen Behörden.
+
+### 8. Haftung
+
+8.1. Der Anbieter haftet nicht für Schäden, die aus der Nutzung der Plattform entstehen, es sei denn, diese sind auf Vorsatz oder grobe Fahrlässigkeit zurückzuführen.  
+8.2. Für Schäden, die aus der Unmöglichkeit der Nutzung der Plattform entstehen, haftet der Anbieter nur bei Vorsatz und grober Fahrlässigkeit.
+
+### 9. Änderungen der AGB
+
+Der Anbieter behält sich das Recht vor, diese AGB jederzeit zu ändern. Änderungen werden den Nutzern rechtzeitig mitgeteilt. Die Nutzung der Plattform nach Inkrafttreten der Änderungen gilt als Zustimmung zu den geänderten AGB. Nutzern wird die Möglichkeit gegeben, den Änderungen zu widersprechen.
+
+### 10. Schlussbestimmungen
+
+10.1. Es gilt das Recht der Bundesrepublik Deutschland.  
+10.2. Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.  
+10.3. Im Falle von Streitigkeiten aus dem Vertragsverhältnis besteht die Möglichkeit, eine Schlichtungsstelle oder ein Mediationsverfahren zu nutzen.
+
+### Stand: Oktober 2024
+
+<!--Link für website-->
+
+[Link]: https://www.eventguru.fun
+
+<!--öffnet Email Progrqamm mit ausgefüllter Adresse Betreff und Grußformel im body-->
+
+[kontakt]: mailto:hallo@eventguru.fun?subject=AGB%20Fragen%20und%20Anmerkungen&body=Hallo%20Eventguru%20Team%2C%0D%0A%0D%0A
