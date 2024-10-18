@@ -16,7 +16,7 @@ class OrganizerSeeder extends Seeder
         $user = User::create([
             'name' => 'Max Mustermann',
             'email' => 'max.mustermann@example.com',
-            'password' => '123456'
+            'password' => '123456',
         ]);
         Organizer::create(['name' => 'ACME', 'user_id' => $user->id]);
     }
