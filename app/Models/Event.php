@@ -46,5 +46,11 @@ class Event extends Model
         'description',
         'starts_at',
         'ends_at',
+        'event_place_id',
     ];
+
+    public function eventPlace(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(EventPlace::class, 'id', 'event_place_id');
+    }
 }

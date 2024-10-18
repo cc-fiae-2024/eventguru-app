@@ -4,8 +4,6 @@
         <div class="col-10 col-lg-4 mx-auto">
             <h1>{{  __('messages.events.heading.create') }}</h1>
 
-            <x-validation-errors class="mb-4" />
-
             <form method="POST" action="{{ route('events.store') }}">
                 @csrf
 
@@ -17,7 +15,7 @@
 
                 <div class="mt-4">
                     <x-label for="description" value="{{ __('messages.events.form.description') }}" />
-                    <x-textarea id="description" class="block mt-1 w-full" type="text" name="description" :value="old('description')" min="3" max="4096" required />
+                    <x-textarea id="description" class="block mt-1 w-full" type="text" name="description" min="3" max="4096" required>{{ old('description') }}</x-textarea>
                     <div>@error('description') <span class="text-red-600 dark:text-red-400">{{ $message }}</span> @enderror</div>
                 </div>
 
@@ -33,18 +31,8 @@
                 </div>
 
                 <div class="mt-4">
-                    <x-label for="event_place" value="{{ __('messages.events.form.place') }}" />
-                    <select id="event_place" class="block mt-1 w-full" type="text" name="event_place" :value="old('event_place')" required>
-                        @foreach($areas as $area)
-                            <optgroup label="{{ $area->name }}">
-                                @foreach($area->eventPlaces as $place)
-                                <option value="{{ $place->id }}">
-                                    {{ $place->zip_code}} {{ $place->name }}
-                                </option>
-                                @endforeach
-                            </optgroup>
-                                @endforeach
-                    </select>
+                    <x-label for="event_place">{{ __('messages.events.form.place') }}</x-label>
+                    <livewire:searchable-dropdown :options="$areas" property="event_place" child-property="event_places" value="{{ old('event_place') }}" />
                     <div>@error('event_place') <span class="text-red-600 dark:text-red-400">{{ $message }}</span> @enderror</div>
                 </div>
 

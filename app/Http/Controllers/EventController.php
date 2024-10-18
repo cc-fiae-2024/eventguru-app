@@ -37,20 +37,12 @@ class EventController extends Controller
      */
     public function store(StoreEventRequest $request)
     {
-        $title = $request->input('title');
-        $description = $request->input('description');
-        $starts_at = $request->input('starts_at');
-        $ends_at = $request->input('ends_at');
-        $zip_code_place = $request->input('event_place');
-        $id_and_place = EventPlace::where('name', $zip_code_place)->first();
-
-        dd($request->all());
         $event = Event::create([
             'title' => $request->title,
             'description' => $request->description,
             'starts_at' => $request->starts_at,
             'ends_at' => $request->ends_at,
-            'event_place_id' => $id_and_place->id,
+            'event_place_id' => $request->event_place,
         ]);
 
         return redirect()->route('events.show', ['event' => $event]);
