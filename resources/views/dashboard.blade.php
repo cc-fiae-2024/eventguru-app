@@ -3,8 +3,19 @@
         <div>
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid flex-row-reverse">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('messages.event_overview.menu_button') }} bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-                        <span class="navbar-toggler-icon"></span>
+                    <button
+                        class="navbar-toggler dark:!border-gray-100"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
+                        aria-label="{{ __('messages.event_overview.menu_button') }}"
+                        style="--bs-navbar-toggler-icon-bg:none;"
+                        >
+                        <span class="navbar-toggler-icon flex-col justify-center" style="display:flex;">
+                            <i class="bi bi-list text-base text-gray-900 dark:text-gray-100"></i>
+                        </span>
                     </button>
                     {{-- Collapse is used by both, Bootstrap and TailwindCSS, overwrite with .visible as workaround --}}
                     {{--  c.f. 'https://github.com/twbs/bootstrap/issues/37509#issuecomment-1366873766' --}}
