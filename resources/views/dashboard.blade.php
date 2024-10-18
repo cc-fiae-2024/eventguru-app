@@ -43,8 +43,9 @@
                                     </span>
                                 </a>
                             </li>
+                            @if(Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <li class="nav-item">
-                                <a class="nav-link text-gray-900 dark:text-gray-100" href="#">
+                                <a class="nav-link text-gray-900 dark:text-gray-100" href="{{ route('profile.show') }}">
                                     <i class="bi bi-person-circle" aria-hidden="true"></i>
                                     <span class="visually-hidden-focusable">
                                         {{ __('messages.event_overview.nav.profile') }}
@@ -54,6 +55,7 @@
                                     </span>
                                 </a>
                             </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link text-gray-900 dark:text-gray-100" href="#">
                                     <i class="bi bi-envelope" aria-hidden="true"></i>
