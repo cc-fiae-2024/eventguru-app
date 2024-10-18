@@ -18,6 +18,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4.1.7 # Even better: using @<commit-SHA>
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+        repository: ${{ github.event.pull_request.head.repo.full_name }}
 
     - name: Install PHP
       uses: shivammathur/setup-php@2.31.1
@@ -63,6 +66,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4.1.7 # Even better: using @<commit-SHA>
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
 
       - name: Setup Node
         uses: actions/setup-node@v4.0.4
