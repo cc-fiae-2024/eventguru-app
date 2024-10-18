@@ -22,6 +22,6 @@ test('submits', function () {
             ->check('terms')
             ->check('newsletter')
             ->press("Los geht's!")
-            ->assertPathIs('/dashboard');
+            ->assertPathIs('/events');
     });
 });

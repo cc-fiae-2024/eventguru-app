@@ -22,7 +22,8 @@ test('submits', function () {
             ->check('terms')
             ->check('newsletter')
             ->press("Los geht's!")
-            ->assertPathIs('/dashboard')
+            ->assertPathIs('/events')
+            ->visit('/dashboard')
                 // Can't visit directly as /logout only accepts POST
             ->press('a[href$="/logout"]');
 
@@ -30,6 +31,6 @@ test('submits', function () {
             ->type('email', 'john.doe@example.com')
             ->type('password', 'secret123!')
             ->press('Anmelden')
-            ->assertPathIs('/dashboard');
+            ->assertPathIs('/events');
     });
 });
