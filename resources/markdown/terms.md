@@ -4,7 +4,7 @@
 
 Verantwortlich für die Verarbeitung Ihrer personenbezogenen Daten im Sinne der EU-Datenschutzgrundverordnung (DSGVO) ist:
 
-***
+---
 
 ### eventguru GmbH
 
@@ -15,37 +15,37 @@ Deutschland
 E-Mail: [info@eventguru.fun][Kontakt]
 Telefon: +49 (0) 123 456789
 
-***
+---
 
 ## Erhebung und Speicherung personenbezogener Daten sowie Art und Zweck der Verwendung
 
 **a)** Beim Besuch der Website:
 Beim Aufrufen unserer Website [www.eventguru.fun][Link] werden automatisch Informationen an den Server unserer Website gesendet. Diese Informationen werden temporär in einem sogenannten Logfile gespeichert. Folgende Informationen werden dabei ohne Ihr Zutun erfasst und bis zur automatisierten Löschung gespeichert:
 
-*•IP-Adresse des anfragenden Rechners
+_•IP-Adresse des anfragenden Rechners
 •Datum und Uhrzeit des Zugriffs
 •Name und URL der abgerufenen Datei
 •Website, von der aus der Zugriff erfolgt [www.eventguru.fun][Link]
-•verwendeter Browser und ggf. das Betriebssystem Ihres Rechners sowie der Name Ihres Access-Providers*
+•verwendeter Browser und ggf. das Betriebssystem Ihres Rechners sowie der Name Ihres Access-Providers_
 
 Diese Daten werden zur Gewährleistung eines reibungslosen Verbindungsaufbaus der Website, zur Gewährleistung einer komfortablen Nutzung unserer Website, zur Auswertung der Systemsicherheit und -stabilität sowie zu weiteren administrativen Zwecken verarbeitet. Die Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse folgt aus den oben aufgelisteten Zwecken zur Datenerhebung.
 
 **b)** Bei der Registrierung als Nutzer
 Wenn Sie sich als Nutzer auf unserer Plattform registrieren, erheben wir folgende Daten:
 
-*•Name
+_•Name
 •E-Mail-Adresse
-•Passwort*
+•Passwort_
 
 Diese Daten verarbeiten wir, um Ihnen den Zugang zu Ihrem Benutzerkonto zu ermöglichen und Ihnen die Nutzung der Plattform zu gestatten. Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
 
 **c)** Nutzung des Kalenders und Event-Verwaltung
 Im Rahmen der Kalender- und Event-Verwaltungsfunktion verarbeiten wir die von Ihnen eingestellten Informationen, wie:
 
-*•Eventtitel
+_•Eventtitel
 •Veranstaltungsort
 •Veranstaltungsdatum
-•sonstige beschreibende Angaben*
+•sonstige beschreibende Angaben_
 
 Diese Daten werden auf der Plattform veröffentlicht und sind für andere Nutzer sichtbar. Sie können diese Informationen jederzeit ändern oder löschen. Die Rechtsgrundlage hierfür ist Art. 6 Abs. 1 lit. b DSGVO.
 
@@ -81,5 +81,4 @@ Aktualität und Änderung dieser Datenschutzerklärung
 Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Oktober 2024. Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Wir werden Sie rechtzeitig über Änderungen informieren.
 
 [Link]: https://www.eventguru.fun
-
 [Kontakt]: mailto:hallo@eventguru.fun?subject=Nutzungsbedingungen%20Fragen%20und%20Anmerlungen&body=Hallo%20Eventguru%20Team%2C%0D%0A%0D%0A

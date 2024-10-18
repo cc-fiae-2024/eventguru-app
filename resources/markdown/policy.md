@@ -61,7 +61,9 @@ Der Anbieter behält sich das Recht vor, diese AGB jederzeit zu ändern. Änderu
 ### Stand: Oktober 2024
 
 <!--Link für website-->
+
 [Link]: https://www.eventguru.fun
 
 <!--öffnet Email Progrqamm mit ausgefüllter Adresse Betreff und Grußformel im body-->
+
 [kontakt]: mailto:hallo@eventguru.fun?subject=AGB%20Fragen%20und%20Anmerkungen&body=Hallo%20Eventguru%20Team%2C%0D%0A%0D%0A

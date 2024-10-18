@@ -5,7 +5,7 @@ eventguru GmbH
 Vertreten durch: Max Mustermann  
 Musterstraße 123  
 12345 Musterstadt  
-Deutschland  
+Deutschland
 
 **Kontakt:**  
 Telefon: +49 (0) 123 456789  
@@ -15,9 +15,9 @@ E-Mail: [hallo@eventguru.fun][Kontakt]
 Max Mustermann  
 Musterstraße 123  
 12345 Musterstadt  
-Deutschland  
+Deutschland
 
-***
+---
 
 ## Haftungsausschluss (Disclaimer)
 
@@ -32,6 +32,7 @@ Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir
 ### Urheberrecht
 
 Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
-***
+
+---
 
 [Kontakt]: mailto:hallo@eventguru.fun?subject=Impressum%20Fragen%20und%20Anmerlungen&body=Hallo%20Eventguru%20Team%2C%0D%0A%0D%0A
