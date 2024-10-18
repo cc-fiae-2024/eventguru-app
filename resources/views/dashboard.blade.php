@@ -3,7 +3,7 @@
         <div>
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid flex-row-reverse">
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('messages.event_overview.menu_button') }}">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('messages.event_overview.menu_button') }} bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     {{-- Collapse is used by both, Bootstrap and TailwindCSS, overwrite with .visible as workaround --}}
