@@ -7,9 +7,13 @@ use Livewire\Component;
 class SearchableDropdown extends Component
 {
     public $options;
+
     public $property;
+
     public $childProperty;
+
     public $search;
+
     public $value;
 
     public function mount($value = null)

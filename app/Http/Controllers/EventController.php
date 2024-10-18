@@ -6,7 +6,6 @@ use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\Area;
 use App\Models\Event;
-use App\Models\EventPlace;
 
 class EventController extends Controller
 {
