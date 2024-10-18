@@ -24,8 +24,6 @@ test('submits', function () {
             ->press("Los geht's!")
             ->assertPathIs('/dashboard')
                 // Can't visit directly as /logout only accepts POST
-            ->press('John Doe')
-            ->waitFor('a[href$="/logout"]')
             ->press('a[href$="/logout"]');
 
         $browser->visit('/login')
