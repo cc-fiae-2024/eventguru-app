@@ -1,9 +1,11 @@
 import:
   - recipe/laravel.php
+  - contrib/cachetool.php
 
 config:
   repository: 'git@github.com:cc-fiae-2024/eventguru-app.git'
   allow_anonymous_stats: false
+  cachetool_url: 'https://github.com/gordalina/cachetool/releases/download/9.1.0/cachetool.phar'
 
 hosts:
   iocaste.uberspace.de:
@@ -14,6 +16,7 @@ hosts:
     deploy_path: '/var/www/virtual/ccfiae24/eventguru'
     branch: main
     git_ssh_command: ssh
+    cachetool: '/run/php-fpm-ccfiae24.sock'
 
 tasks:
   build:
@@ -21,6 +24,7 @@ tasks:
 
 after:
   deploy:failed: deploy:unlock
+  deploy:symlink: cachetool:clear:stat
   deploy:cleanup:
    - artisan:cache:clear
    - artisan:optimize
