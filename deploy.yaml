@@ -21,7 +21,8 @@ tasks:
 
 after:
   deploy:failed: deploy:unlock
-  deploy:symlink: run('uberspace tools restart php')
+  deploy:symlink:
+    - run: 'uberspace tools restart php'
   deploy:cleanup:
     - artisan:cache:clear
     - artisan:optimize
