@@ -18,11 +18,12 @@ hosts:
 tasks:
   build:
     - run: uptime
+  uberspace:restart:
+    - run: uberspace tools restart php
 
 after:
   deploy:failed: deploy:unlock
-  deploy:symlink:
-    - run: 'uberspace tools restart php'
+  deploy:symlink: uberspace:restart
   deploy:cleanup:
     - artisan:cache:clear
     - artisan:optimize
