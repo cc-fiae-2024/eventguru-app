@@ -5,6 +5,7 @@ on:
       - closed
     branches:
       - main
+  workflow_dispatch:
 
 env:
   PHP_VERSION: 8.3
