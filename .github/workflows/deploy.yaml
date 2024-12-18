@@ -6,17 +6,22 @@ on:
     branches:
       - main
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'Production'
 
 env:
   PHP_VERSION: 8.3
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true || ${{ github.event_name == 'workflow_dispatch' && inputs.environment == 'Production' }}
     uses: './.github/workflows/build.yaml'
 
   deploy:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true || ${{ github.event_name == 'workflow_dispatch' && inputs.environment == 'Production' }}
     runs-on: ubuntu-24.04
     needs: build
     environment: Production
